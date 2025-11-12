@@ -1,0 +1,22 @@
+services:
+  excel-mcp-server:
+    image: excel-mcp-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./excel_files:/app/excel_files
+    environment:
+      - EXCEL_FILES_PATH=${EXCEL_FILES_PATH:-/app/excel_files}
+      - TZ=${TZ:-UTC}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    # Remove this ports section when deploying to Coolify (Coolify handles port mapping)
+    ports:
+      - "${PORT:-8000}:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/mcp"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

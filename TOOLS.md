@@ -157,7 +157,6 @@ get_merged_cells(filepath: str, sheet_name: str) -> str
 - `sheet_name`: Target worksheet name
 - Returns: String representation of merged cells
 
-
 ## Formula Operations
 
 ### apply_formula

@@ -35,12 +35,12 @@ uvx excel-mcp-server stdio
 
 ```json
 {
-   "mcpServers": {
-      "excel": {
-         "command": "uvx",
-         "args": ["excel-mcp-server", "stdio"]
-      }
-   }
+  "mcpServers": {
+    "excel": {
+      "command": "uvx",
+      "args": ["excel-mcp-server", "stdio"]
+    }
+  }
 }
 ```
 
@@ -51,13 +51,14 @@ uvx excel-mcp-server sse
 ```
 
 **SSE transport connection**:
+
 ```json
 {
-   "mcpServers": {
-      "excel": {
-         "url": "http://localhost:8000/sse",
-      }
-   }
+  "mcpServers": {
+    "excel": {
+      "url": "http://localhost:8000/sse"
+    }
+  }
 }
 ```
 
@@ -68,13 +69,14 @@ uvx excel-mcp-server streamable-http
 ```
 
 **Streamable HTTP transport connection**:
+
 ```json
 {
-   "mcpServers": {
-      "excel": {
-         "url": "http://localhost:8000/mcp",
-      }
-   }
+  "mcpServers": {
+    "excel": {
+      "url": "http://localhost:8000/mcp"
+    }
+  }
 }
 ```
 
@@ -83,9 +85,11 @@ uvx excel-mcp-server streamable-http
 ### SSE and Streamable HTTP Transports
 
 When running the server with the **SSE or Streamable HTTP protocols**, you **must set the `EXCEL_FILES_PATH` environment variable on the server side**. This variable tells the server where to read and write Excel files.
+
 - If not set, it defaults to `./excel_files`.
 
 You can also set the `FASTMCP_PORT` environment variable to control the port the server listens on (default is `8017` if not set).
+
 - Example (Windows PowerShell):
   ```powershell
   $env:EXCEL_FILES_PATH="E:\MyExcelFiles"
